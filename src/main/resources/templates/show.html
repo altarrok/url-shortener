@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Shortener</title>
+</head>
+<body>
+<h1 th:text="${URL.url}"></h1>
+<a th:href="@{'' + '/' + ${URL.key}}" th:text="${#httpServletRequest.getLocalAddr()} + '/' + ${URL.key}"></a>
+<p th:text="'/' + ${URL.key}"></p>
+
+</body>
+</html>

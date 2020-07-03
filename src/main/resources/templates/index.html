@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Shortener</title>
+</head>
+<body>
+<form action="/create" method="post" th:object="${URL}">
+    <div th:if="${#fields.hasErrors('*')}">
+        <p>Please Correct Errors Below</p>
+    </div>
+    <input type="hidden" th:field="*{id}">
+    <input type="text" th:field="*{url}">
+    <span th:if="${#fields.hasErrors('url')}">
+        <ul>
+            <li th:each="err : ${#fields.errors('url')}" th:text="${err}"></li>
+        </ul>
+    </span>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
